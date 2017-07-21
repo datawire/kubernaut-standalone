@@ -1,0 +1,10 @@
+# IntelliJ IDEA
+.idea
+
+# Packer
+packer.log
+packer_variables.json
+
+# Terraform
+.terraform
+*.tfstate*

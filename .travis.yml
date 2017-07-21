@@ -1,0 +1,26 @@
+---
+sudo: false
+dist: trusty
+language: generic
+
+#env:
+#  global:
+#    - TOOLS_DIR=${HOME}/bin
+#    - PATH="${TOOLS_DIR}:${PATH}"
+#
+#    - COMMIT_HASH=${TRAVIS_COMMIT::8}
+#
+#    - PACKER_VERSION=1.0.3
+#    - PACKER_SHA256SUM=
+#
+#before_install:
+#  - set -e
+#  - ci/travis/setup_travis.sh
+#
+#install:
+#  - set -e
+#  - ci/install_packer.sh
+#
+#script:
+#  - set -e
+#  - ci/travis/packer_build.sh
