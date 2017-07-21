@@ -30,6 +30,12 @@ resource "aws_subnet" "kubernaut" {
   }
 }
 
+resource "aws_route" "external" {
+  route_table_id         = "${aws_vpc.kubernaut.default_route_table_id}"
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = "${aws_internet_gateway.main.id}"
+}
+
 resource "aws_route_table_association" "kubernaut" {
   subnet_id      = "${aws_subnet.kubernaut.id}"
   route_table_id = "${aws_vpc.kubernaut.default_route_table_id}"

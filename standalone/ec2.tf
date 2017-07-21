@@ -5,7 +5,6 @@ resource "aws_security_group" "kubernaut" {
   name   = "${var.cluster_name}"
 
   tags {
-    Name                       = "kubernaut-${var.cluster_name}"
     "io.kubernaut/ClusterName" = "${var.cluster_name}"
   }
 }
@@ -41,7 +40,7 @@ data "template_file" "kubernaut_provisioner" {
   template = "${file("${path.module}/provision.sh")}"
 
   vars {
-    kubeadm_token    = "${random_shuffle.kubeadm_token_part1.id}.${random_shuffle.kubeadm_token_part2.id}"
+    kubeadm_token    = "${data.template_file.kubeadm_token.rendered}"
     cluster_name     = "${var.cluster_name}"
     cluster_dns_name = "${var.cluster_name}.${var.hosted_zone}"
   }

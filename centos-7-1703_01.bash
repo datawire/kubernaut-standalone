@@ -8,7 +8,7 @@ KUBECTL_VERSION=1.7.1
 # Update system software and install required dependencies
 # ----------------------------------------------------------------------------------------------------------------------
 yum -y update
-yum -y install yum-utils device-mapper-persistent-data lvm2
+yum -y install curl yum-utils device-mapper-persistent-data lvm2
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Configure Docker and Kubeadm Yum repositories

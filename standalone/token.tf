@@ -15,3 +15,12 @@ resource "random_shuffle" "kubeadm_token_part2" {
   input = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "a", "b", "c", "d", "e", "f", "g", "h", "i", "t", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   result_count = 16
 }
+
+data "template_file" "kubeadm_token" {
+  template = "$${part1}.$${part2}"
+
+  vars {
+    part1 = "${join("", random_shuffle.kubeadm_token_part1.result)}"
+    part2 = "${join("", random_shuffle.kubeadm_token_part2.result)}"
+  }
+}
