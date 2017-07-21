@@ -8,3 +8,4 @@ packer_variables.json
 # Terraform
 .terraform
 *.tfstate*
+*.out
