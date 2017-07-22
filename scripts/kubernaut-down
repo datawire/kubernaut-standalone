@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd standalone
+terraform plan -destroy -out plan.out
+terraform apply plan.out
