@@ -26,7 +26,7 @@ rm /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Calico
-kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/scholzj/aws-minikube/master/scripts/calico.yaml
 
 # Allow containers to run on the Kubernetes Master
 kubectl taint nodes --all node-role.kubernetes.io/master-
