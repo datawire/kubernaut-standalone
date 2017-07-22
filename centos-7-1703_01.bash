@@ -29,12 +29,6 @@ EOF
 
 yum makecache -y fast
 
-# WORKAROUND: https://github.com/kubernetes/kubeadm/issues/354
-curl -LO https://dl.k8s.io/v1.7.2/kubernetes-server-linux-amd64.tar.gz
-tar xvf kubernetes-server-linux-amd64.tar.gz kubernetes/server/bin/kubeadm --strip=3
-rm -f kubernetes-server-linux-amd64.tar.gz
-mv -f kubeadm /bin/kubeadm
-
 # ----------------------------------------------------------------------------------------------------------------------
 # Install Docker, Kubeadm and Kubectl
 # ----------------------------------------------------------------------------------------------------------------------
@@ -48,6 +42,12 @@ yum install -y \
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
 chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
+
+# WORKAROUND: https://github.com/kubernetes/kubeadm/issues/354
+curl -LO https://dl.k8s.io/v1.7.2/kubernetes-server-linux-amd64.tar.gz
+tar xvf kubernetes-server-linux-amd64.tar.gz kubernetes/server/bin/kubeadm --strip=3
+rm -f kubernetes-server-linux-amd64.tar.gz
+mv -f kubeadm /bin/kubeadm
 
 # Ensure docker and kubelet start on system boot
 systemctl enable docker
