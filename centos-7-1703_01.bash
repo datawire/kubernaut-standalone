@@ -29,6 +29,12 @@ EOF
 
 yum makecache -y fast
 
+# WORKAROUND: https://github.com/kubernetes/kubeadm/issues/354
+curl -LO https://dl.k8s.io/v1.7.2/kubernetes-server-linux-amd64.tar.gz
+tar xvf kubernetes-server-linux-amd64.tar.gz kubernetes/server/bin/kubeadm --strip=3
+rm -f kubernetes-server-linux-amd64.tar.gz
+mv -f kubeadm /bin/kubeadm
+
 # ----------------------------------------------------------------------------------------------------------------------
 # Install Docker, Kubeadm and Kubectl
 # ----------------------------------------------------------------------------------------------------------------------
