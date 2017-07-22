@@ -8,3 +8,8 @@ variable "region" {
 }
 
 variable "ssh_public_key" {}
+
+variable "kubernetes_networking_plugin" {
+  description = "Name of the Kubernetes networking plugin"
+  default     = "calico"
+}

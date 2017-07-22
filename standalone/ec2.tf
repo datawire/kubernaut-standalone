@@ -40,9 +40,10 @@ data "template_file" "kubernaut_provisioner" {
   template = "${file("${path.module}/provision.sh")}"
 
   vars {
-    kubeadm_token    = "${data.template_file.kubeadm_token.rendered}"
-    cluster_name     = "${var.cluster_name}"
-    cluster_dns_name = "${var.cluster_name}.${var.hosted_zone}"
+    kubeadm_token                = "${data.template_file.kubeadm_token.rendered}"
+    cluster_name                 = "${var.cluster_name}"
+    cluster_dns_name             = "${var.cluster_name}.${var.hosted_zone}"
+    kubernetes_networking_plugin = "${var.kubernetes_networking_plugin}"
   }
 }
 

@@ -25,10 +25,6 @@ rm /tmp/kubeadm.yaml
 
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
-# Flannel
-#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
-#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
 # Calico
 kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/rbac.yaml
 kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
