@@ -26,7 +26,7 @@ rm /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Calico
-kubectl apply -f https://raw.githubusercontent.com/scholzj/aws-minikube/master/scripts/calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/datawire/kubernaut-standalone/master/etc/calico/calico.yaml
 
 # Allow containers to run on the Kubernetes Master
 kubectl taint nodes --all node-role.kubernetes.io/master-
@@ -42,7 +42,7 @@ export KUBECONFIG_OUTPUT=/home/centos/kubeconfig
 kubeadm alpha phase kubeconfig client-certs \
   --client-name admin \
   --server "https://${CLUSTER_DNS_NAME}:6443" \
-  > $KUBECONFIG_OUTPUT
+  > "$KUBECONFIG_OUTPUT"
 
-chown centos:centos $KUBECONFIG_OUTPUT
-chmod 0600 $KUBECONFIG_OUTPUT
+chown centos:centos "$KUBECONFIG_OUTPUT"
+chmod 0600 "$KUBECONFIG_OUTPUT"

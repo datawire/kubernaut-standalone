@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+PRIVATE_KEY=${1:?"PRIVATE_KEY must be set!"}
+
+cd standalone
+ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no centos@$(terraform output kubernaut_fqdn)
+cd -

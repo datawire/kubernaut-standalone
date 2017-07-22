@@ -26,6 +26,7 @@ rm /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Flannel
+# TODO: Internal -> External Networking Still Does not work
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
@@ -43,7 +44,8 @@ export KUBECONFIG_OUTPUT=/home/centos/kubeconfig
 kubeadm alpha phase kubeconfig client-certs \
   --client-name admin \
   --server "https://${CLUSTER_DNS_NAME}:6443" \
-  > $KUBECONFIG_OUTPUT
+  > "$KUBECONFIG_OUTPUT"
 
-chown centos:centos $KUBECONFIG_OUTPUT
-chmod 0600 $KUBECONFIG_OUTPUT
+chown centos:centos "$KUBECONFIG_OUTPUT"
+chmod 0600 "$KUBECONFIG_OUTPUT"
+
