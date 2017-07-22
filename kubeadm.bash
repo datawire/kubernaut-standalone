@@ -17,8 +17,6 @@ cloudProvider: aws
 kubernetesVersion: v${KUBERNETES_VERSION}
 apiServerCertSANs:
 - ${CLUSTER_DNS_NAME}
-networking:
-  podSubnet: 10.244.0.0/16
 EOF
 
 kubeadm reset
@@ -28,8 +26,12 @@ rm /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Flannel
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
+#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+# Calico
+kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/rbac.yaml
+kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
 
 # Allow containers to run on the Kubernetes Master
 kubectl taint nodes --all node-role.kubernetes.io/master-
