@@ -9,7 +9,10 @@ CLUSTER_DNS_NAME=$(echo "${CLUSTER_DNS_NAME}" | tr 'A-Z' 'a-z')
 
 # This is a bit of a hack but I do not feel like mucking with Systemd unit file ordering right now to ensure the
 # cloud-final unit runs after the docker.service unit.
+systemctl enable docker
 systemctl start docker
+
+systemctl enable kubelet
 systemctl start kubelet
 sleep 5s
 
