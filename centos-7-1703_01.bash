@@ -50,8 +50,8 @@ rm -f kubernetes-server-linux-amd64.tar.gz
 mv -f kubeadm /bin/kubeadm
 
 # Ensure docker and kubelet start on system boot
-systemctl enable docker
-systemctl enable kubelet
+#systemctl enable docker
+#systemctl enable kubelet
 
 # Add centos to the Docker user group
 usermod -aG docker centos
