@@ -10,7 +10,7 @@ packer_exec="${PACKER_EXEC:=packer}"
 
 cat << EOF > packer_variables.json
 {
-  "build_number"     : "${TRAVIS_JOB_NUMBER}",
+  "build_number"     : "${TRAVIS_BUILD_NUMBER}",
   "builder"          : "travis",
   "commit"           : "${COMMIT_HASH}",
   "forge_deregister" : "false"
