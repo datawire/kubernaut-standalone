@@ -8,7 +8,19 @@ KUBECTL_VERSION=1.7.1
 # Update system software and install required dependencies
 # ----------------------------------------------------------------------------------------------------------------------
 yum -y update
-yum -y install curl yum-utils device-mapper-persistent-data lvm2
+yum -y install \
+    curl \
+    yum-utils \
+    device-mapper-persistent-data \
+    lvm2 \
+    python-pip \
+    python-virtualenv \
+    awscli
+
+# AWS metadata tool
+curl -O https://s3.amazonaws.com/ec2metadata/ec2-metadata
+mv ec2-metadata /usr/bin/ec2-metadata
+chmod 0755 /usr/bin/ec2-metadata
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Configure Docker and Kubeadm Yum repositories
