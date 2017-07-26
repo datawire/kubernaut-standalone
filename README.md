@@ -1,6 +1,8 @@
-# Kubernaut Standalone
+# Kubernaut Amazon Machine Image
 
-Standalone Kubernaut
+[![Build Status](https://travis-ci.org/datawire/kubernaut-standalone.svg?branch=master)](https://travis-ci.org/datawire/kubernaut-standalone)
+
+Virtual machine image for Kubernaut instances.
 
 # License
 
