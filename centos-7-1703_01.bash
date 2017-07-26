@@ -14,8 +14,10 @@ yum -y install \
     device-mapper-persistent-data \
     lvm2 \
     python-pip \
-    python-virtualenv \
-    awscli
+    python-virtualenv
+
+# Update pip and install AWS CLI
+pip install -U pip awscli
 
 # AWS metadata tool
 curl -O https://s3.amazonaws.com/ec2metadata/ec2-metadata
