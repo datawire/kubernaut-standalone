@@ -8,13 +8,14 @@ KUBECTL_VERSION=1.7.1
 # Update system software and install required dependencies
 # ----------------------------------------------------------------------------------------------------------------------
 yum -y update
+
+yum -y install epel-release
 yum -y install \
     curl \
     yum-utils \
     device-mapper-persistent-data \
     lvm2 \
-    python-pip \
-    python-virtualenv
+    python-pip
 
 # Update pip and install AWS CLI
 pip install -U pip awscli
