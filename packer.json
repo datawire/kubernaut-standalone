@@ -4,8 +4,8 @@
     "builder": null,
     "commit": null,
     "force_deregister": "false",
-    "source_ami": "ami-ae7bfdb8",
-    "source_os": "centos-7-1703_01"
+    "source_ami": "ami-46c1b650",
+    "source_os": "centos-7-1704"
   },
   "builders": [
     {

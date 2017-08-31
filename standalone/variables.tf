@@ -9,7 +9,7 @@ variable "region" {
 
 variable "ssh_public_key" {}
 
-variable "kubernetes_networking_plugin" {
-  description = "Name of the Kubernetes networking plugin"
-  default     = "calico"
+variable "bootstrap_script" {
+  description = "Name of the bootstrap script"
+  default     = "kubernaut-io-v1-nostart.bash"
 }

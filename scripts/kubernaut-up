@@ -7,9 +7,9 @@ cat >terraform.tfvars <<EOF
 cluster_name                 = "${NAME}"
 hosted_zone                  = "kubernaut.io"
 instance_type                = "m4.large"
-image_id                     = "ami-a2233eb4"
+image_id                     = "ami-5d4e4526"
 ssh_public_key               = "${SSH_KEY}"
-kubernetes_networking_plugin = "calico"
+bootstrap_script             = "kubernaut-io-v1-nostart.bash"
 EOF
 
 terraform plan -out plan.out

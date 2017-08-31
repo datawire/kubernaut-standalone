@@ -45,14 +45,11 @@ resource "aws_security_group_rule" "all_egress" {
   type              = "egress"
 }
 
-data "template_file" "kubernaut_provisioner" {
-  template = "${file("${path.module}/provision.sh")}"
-
+data "template_file" "kubernaut_shim" {
+  template = "${file("${path.module}/kubernaut-io-v1-shim.bash")}"
   vars {
-    kubeadm_token                = "${data.template_file.kubeadm_token.rendered}"
-    cluster_name                 = "${var.cluster_name}"
-    cluster_dns_name             = "${var.cluster_name}.${var.hosted_zone}"
-    kubernetes_networking_plugin = "${var.kubernetes_networking_plugin}"
+    kubeadm_token    = "${data.template_file.kubeadm_token.rendered}"
+    bootstrap_script = "${var.bootstrap_script}"
   }
 }
 
@@ -67,8 +64,9 @@ resource "aws_instance" "kubernaut" {
   iam_instance_profile        = "${aws_iam_instance_profile.kubernaut_profile.name}"
   instance_type               = "${var.instance_type}"
   subnet_id                   = "${aws_subnet.kubernaut.id}"
-  user_data                   = "${data.template_file.kubernaut_provisioner.rendered}"
+  user_data                   = "${data.template_file.kubernaut_shim.rendered}"
   key_name                    = "${aws_key_pair.kubernaut.id}"
+  monitoring                  = false
   vpc_security_group_ids      = ["${aws_security_group.kubernaut.id}"]
 
   root_block_device {

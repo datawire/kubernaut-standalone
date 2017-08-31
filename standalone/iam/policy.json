@@ -5,7 +5,8 @@
       "Effect": "Allow",
       "Action": [
         "ec2:*",
-        "elasticloadbalancing:*"
+        "elasticloadbalancing:*",
+        "route53:*"
       ],
       "Resource": "*"
     }
