@@ -125,21 +125,21 @@
     {
       "only": ["kubernaut_k8s-v174"],
       "type": "shell",
-      "script": "kubernaut_k8s-v174.bash",
+      "script": "centos-7-1704.bash",
       "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
     },
 
     {
       "only": ["kubernaut_k8s-v178"],
       "type": "shell",
-      "script": "kubernaut_k8s-v178.bash",
+      "script": "centos-7-1704_k8s-v178.bash",
       "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
     },
 
     {
       "only": ["kubernaut_k8s-v180"],
       "type": "shell",
-      "script": "kubernaut_k8s-v180.bash",
+      "script": "centos-7-1704_k8s-v180.bash",
       "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
     }
   ]
