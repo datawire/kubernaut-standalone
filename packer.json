@@ -123,8 +123,23 @@
   ],
   "provisioners": [
     {
+      "only": ["kubernaut_k8s-v174"],
       "type": "shell",
-      "script": "{{ user `source_os` }}.bash",
+      "script": "kubernaut_k8s-v174.bash",
+      "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
+    },
+
+    {
+      "only": ["kubernaut_k8s-v178"],
+      "type": "shell",
+      "script": "kubernaut_k8s-v178.bash",
+      "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
+    },
+
+    {
+      "only": ["kubernaut_k8s-v180"],
+      "type": "shell",
+      "script": "kubernaut_k8s-v180.bash",
       "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
     }
   ]
