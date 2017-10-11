@@ -34,7 +34,7 @@
       },
       "source_ami": "{{ user `source_ami` }}",
       "sriov_support": true,
-      "spot_price": "0.05",
+      "spot_price_auto_product": "Linux/UNIX (Amazon VPC)",
       "ssh_username": "centos",
       "tags": {
         "Build": "{{ user `build_number` }}",
@@ -71,7 +71,7 @@
       },
       "source_ami": "{{ user `source_ami` }}",
       "sriov_support": true,
-      "spot_price": "0.05",
+      "spot_price_auto_product": "Linux/UNIX (Amazon VPC)",
       "ssh_username": "centos",
       "tags": {
         "Build": "{{ user `build_number` }}",
@@ -108,7 +108,7 @@
       },
       "source_ami": "{{ user `source_ami` }}",
       "sriov_support": true,
-      "spot_price": "0.05",
+      "spot_price_auto_product": "Linux/UNIX (Amazon VPC)",
       "ssh_username": "centos",
       "tags": {
         "Build": "{{ user `build_number` }}",
