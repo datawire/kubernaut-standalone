@@ -10,6 +10,7 @@
   "builders": [
 
     {
+      "name": "kubernaut_k8s-v180",
       "type": "amazon-ebs",
       "ami_description": "kubernaut {{ user `source_os` }} (build: {{ user `build_number` }})",
       "ami_name": "kubernaut_k8s-v180_b{{ user `build_number` }}",
@@ -46,6 +47,7 @@
     },
 
     {
+      "name": "kubernaut_k8s-v178",
       "type": "amazon-ebs",
       "ami_description": "kubernaut {{ user `source_os` }} (build: {{ user `build_number` }})",
       "ami_name": "kubernaut_k8s-v178_b{{ user `build_number` }}",
@@ -82,6 +84,7 @@
     },
 
     {
+      "name": "kubernaut_k8s-v174",
       "type": "amazon-ebs",
       "ami_description": "kubernaut {{ user `source_os` }} (build: {{ user `build_number` }})",
       "ami_name": "kubernaut_k8s-v174_b{{ user `build_number` }}",
