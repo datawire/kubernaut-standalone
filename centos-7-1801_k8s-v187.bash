@@ -53,7 +53,7 @@ yum install -y \
     docker-ce-selinux \
     kubelet-${KUBERNETES_VERSION} \
     kubeadm-${KUBERNETES_VERSION} \
-    kubernetes-cni=0.6.0
+    kubernetes-cni=0.5.1
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
 chmod +x kubectl
