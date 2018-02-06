@@ -9,10 +9,10 @@
   },
   "builders": [
     {
-      "name": "kubernaut_k8s-v187",
+      "name": "kubernaut_k8s-v192",
       "type": "amazon-ebs",
       "ami_description": "kubernaut {{ user `source_os` }} (build: {{ user `build_number` }})",
-      "ami_name": "kubernaut_k8s-v187_b{{ user `build_number` }}",
+      "ami_name": "kubernaut_k8s-v192_b{{ user `build_number` }}",
       "instance_type": "m4.large",
       "launch_block_device_mappings": [
         {
@@ -41,15 +41,15 @@
         "Commit": "{{ user `commit` }}",
         "OS": "{{ user `source_os` }}",
         "Source": "ami-4bf3d731",
-        "kubernaut.io/kubernetes-version": "1.8.7"
+        "kubernaut.io/kubernetes-version": "1.9.2"
       }
     }
   ],
   "provisioners": [
     {
-      "only": ["kubernaut_k8s-v187"],
+      "only": ["kubernaut_k8s-v192"],
       "type": "shell",
-      "script": "centos-7-1801_k8s-v187.bash",
+      "script": "centos-7-1801_k8s-v192.bash",
       "execute_command": "{{ .Vars }} sudo -E -S bash '{{ .Path }}'"
     }
   ]

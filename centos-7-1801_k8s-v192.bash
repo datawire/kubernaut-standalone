@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-KUBERNETES_VERSION=1.8.7
-KUBECTL_VERSION=1.8.7
+KUBERNETES_VERSION=1.9.2
+KUBECTL_VERSION=1.9.2
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Update system software and install required dependencies
