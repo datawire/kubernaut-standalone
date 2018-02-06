@@ -51,13 +51,13 @@ yum makecache -y fast
 yum install -y \
     docker-ce \
     docker-ce-selinux \
+    kubectl-${KUBERNETES_VERSION} \
     kubelet-${KUBERNETES_VERSION} \
-    kubeadm-${KUBERNETES_VERSION} \
-    kubernetes-cni=0.5.1
+    kubeadm-${KUBERNETES_VERSION}
 
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
-chmod +x kubectl
-mv kubectl /usr/local/bin/kubectl
+#curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+#chmod +x kubectl
+#mv kubectl /usr/local/bin/kubectl
 
 # Add centos to the Docker user group
 usermod -aG docker centos
